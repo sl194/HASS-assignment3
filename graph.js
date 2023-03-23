@@ -7,7 +7,7 @@ d3.csv("https://raw.githubusercontent.com/sl194/HASS-assignment3/main/jan2017onw
     floor_area_sqm: +d.floor_area_sqm,
   };
 }).then(function(data) {
-    const margin = {top: 10, right: 10, bottom: 30, left: 10};
+    const margin = {top: 10, right: 20, bottom: 30, left: 20};
     const width = window.innerWidth - margin.left - margin.right;
     const height = window.innerHeight - margin.top - margin.bottom;
 //        const width = window.innerWidth-10;
@@ -145,6 +145,7 @@ const bars = svg.selectAll("rect")
 // Enter the data for the bars
 bars.enter().append("rect")
   .merge(bars)
+        .attr("transform", "translate(40,0)")
   .attr("x", d => xScale(d.town))
   .attr("y", d => yScale(d.pricePerSqM))
   .attr("width", xScale.bandwidth())
@@ -156,7 +157,7 @@ bars.enter().append("rect")
 
   // Add the x-axis
   svg.append("g")
-    .attr("transform","translate(0,"+height+")")
+    .attr("transform","translate(40,"+height+")")
       .style("font-size", "8px")
     .call(d3.axisBottom(xScale));
 
@@ -178,10 +179,10 @@ bars.enter().append("rect")
 //    .attr("class", "y label")
 //    .attr("text-anchor", "end")
 //    .attr("y", 0)
-//    .attr("dy", "0.5em")
+//    .attr("dy", "0.6em")
 //    .attr("transform", "rotate(-90)")
 //    .text(`$ per square meter`);
-    
+//    
    
 
   // Add a title to the graph
