@@ -31,20 +31,19 @@
 </head>
 <body>
     <h1 style="text-align: center;font-family:sans-serif">Average prices across different towns in Singapore based on unit type</h1>
+        <h3 style="text-align: center;font-family:sans-serif; font-weight: 200">For different unit types, which is the least and most expensive towns to live in ($/per sqm)?</h3><br>
     <div id="myDIV" style="text-align: center;">
   <button class="btn" id="room-1">1 ROOM</button>
-  <button class="btn" id="room-2">2 ROOM</button>
+  <button class="btn active" id="room-2">2 ROOM</button>
   <button class="btn" id="room-3">3 ROOM</button>
   <button class="btn" id="room-4">4 ROOM</button>
   <button class="btn" id="room-5">5 ROOM</button>
   <button class="btn" id="room-exec">EXECUTIVE</button>
-</div><br><br>
- <svg id="graph"></svg>
-
-</body>
-<script>
+</div>
+    <script>
+// Add active class to the current button (highlight it)
 var header = document.getElementById("myDIV");
-var btns = document.getElementsByClassName("btn");
+var btns = header.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
   var current = document.getElementsByClassName("active");
@@ -52,5 +51,10 @@ for (var i = 0; i < btns.length; i++) {
   this.className += " active";
   });
 }
-</script>
+</script><br><br>
+ <svg id="graph"></svg>
+
+    <div>This graph is trying to show the "Average prices across different towns in Singapore based on unit type". It is derived by grouping the data by town and unit type, and then calculating the average price per square meter for each town and unit type. A bar chart with the town names on the x-axis and the average price per square meter on the y-axis is then created, with users having the ability to filter between the different unit types (i.e. 1 room, 2 room, etc).</div>
+</body>
+
 </html>

@@ -1,5 +1,5 @@
 // Load the data
-d3.csv("https://raw.githubusercontent.com/sl194/HASS-assignment3/main/jan2017onwards_edited.csv?token=GHSAT0AAAAAAB7LT4EK7JD6ENMKB2UQT5JWZA4C7TA", function(d) {
+d3.csv("https://raw.githubusercontent.com/sl194/HASS-assignment3/main/jan2017onwards_edited.csv?token=GHSAT0AAAAAAB7LT4EKWKL36YVJRQLGQH7OZA4GKPQ", function(d) {
   return {
     town: d.town,
     resale_price: +d.resale_price,
@@ -7,8 +7,11 @@ d3.csv("https://raw.githubusercontent.com/sl194/HASS-assignment3/main/jan2017onw
     floor_area_sqm: +d.floor_area_sqm,
   };
 }).then(function(data) {
-        const width = window.innerWidth-10;
-    const height = window.innerHeight;
+    const margin = {top: 10, right: 10, bottom: 30, left: 10};
+    const width = window.innerWidth - margin.left - margin.right;
+    const height = window.innerHeight - margin.top - margin.bottom;
+//        const width = window.innerWidth-10;
+//    const height = window.innerHeight;
 // Select the buttons
 const button1 = d3.select("#room-1");
 const button2 = d3.select("#room-2");
@@ -20,21 +23,27 @@ const buttonExec = d3.select("#room-exec");
 // Add event listeners to each button
 button1.on("click", function() {
   updateGraph("1 ROOM");
+//    updateDomain("1 ROOM");
 });
 button2.on("click", function() {
   updateGraph("2 ROOM");
+//    updateDomain("2 ROOM");
 });
 button3.on("click", function() {
   updateGraph("3 ROOM");
+//    updateDomain("3 ROOM");
 });
 button4.on("click", function() {
   updateGraph("4 ROOM");
+//    updateDomain("4 ROOM");
 });
 button5.on("click", function() {
   updateGraph("5 ROOM");
+//    updateDomain("5 ROOM");
 });
 buttonExec.on("click", function() {
   updateGraph("EXECUTIVE");
+//    updateDomain("EXECUTIVE");
 });
 
     console.log(data);
@@ -106,26 +115,13 @@ function updateGraph(unitType) {
   "Toa Payoh": "Central",
 };
     
-  // Group the data by town and calculate the average price per square metre
-//  const townData = d3.group(filteredData, d => d.town);
-//  const townPrices = Array.from(townData, ([town, data]) => {
-//    const pricePerSqM = d3.mean(data, d => d["resale_price"] / d["floor_area_sqm"]);
-//    return { town, pricePerSqM };
-//  });
-//    
-//    console.log(townPrices);
-
-  // Sort the data by price per square metre
-//  townPrices.sort(function(a, b) {
-//    return a.pricePerSqM - b.pricePerSqM;
-//  });
 
   // Select the SVG element and set its size
 
   const svg = d3.select("#graph");
 svg.attr("width", width)
    .attr("height", height);
-//    console.log("test");
+   
     
 
   // Set the scales for the x and y axes
@@ -160,7 +156,7 @@ bars.enter().append("rect")
 
   // Add the x-axis
   svg.append("g")
-    .attr("transform", `translate(0,620)`)
+    .attr("transform", "translate(0,620)")
       .style("font-size", "8px")
     .call(d3.axisBottom(xScale));
 
@@ -174,15 +170,19 @@ bars.enter().append("rect")
     
   // Add the y-axis
   svg.append("g")
+    .attr("transform", "translate(40,0)")
+    .style("font-size", "8px")
     .call(d3.axisLeft(yScale));
     
-    svg.append("text")
-    .attr("class", "y label")
-    .attr("text-anchor", "end")
-    .attr("y", 6)
-    .attr("dy", ".75em")
-    .attr("transform", "rotate(-90)")
-    .text(`Average price of ${unitType}`);
+//    svg.append("text")
+//    .attr("class", "y label")
+//    .attr("text-anchor", "end")
+//    .attr("y", 0)
+//    .attr("dy", "0.5em")
+//    .attr("transform", "rotate(-90)")
+//    .text(`$ per square meter`);
+    
+   
 
   // Add a title to the graph
 //  svg.append("text")
@@ -191,9 +191,17 @@ bars.enter().append("rect")
 //    .attr("text-anchor", "middle")
 //    .style("font-size", "36px")
 //    .text(`Average prices across different towns in Singapore for ${unitType}`);
+     
+ 
 }
 
 // Initialize the graph with the default unit
-const defaultUnitType = "2 ROOM";
+//    const defaultUnitType = "1 ROOM";
+    const defaultUnitType = "2 ROOM";
+//    const defaultUnitType = "3 ROOM";
+//    const defaultUnitType = "4 ROOM";
+//    const defaultUnitType = "5 ROOM";
+//    const defaultUnitType = "EXECUTIVE";
 updateGraph(defaultUnitType);
+
 })
