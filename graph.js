@@ -28,6 +28,8 @@ buttonExec.on("click", function() {
   updateGraph("EXECUTIVE");
 });
 
+    console.log(data);
+    console.log(Array.isArray(data));
 // Define a function to update the graph based on the selected unit type
 function updateGraph(unitType) {
   // Filter the data by the selected unit type
@@ -82,9 +84,13 @@ function updateGraph(unitType) {
   });
 
   // Select the SVG element and set its size
-  const svg = d3.select("graph");
-svg.attr("width", window.innerWidth)
-   .attr("height", window.innerHeight);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+  const svg = d3.select("#graph");
+svg.attr("width", width)
+   .attr("height", height);
+    console.log("test");
+    
 
   // Set the scales for the x and y axes
   const xScale = d3.scaleBand()
@@ -137,4 +143,4 @@ bars.enter().append("rect")
 // Initialize the graph with the default unit
 const defaultUnitType = "1 ROOM";
 updateGraph(defaultUnitType);
-}
+})
