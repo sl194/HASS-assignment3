@@ -22,27 +22,34 @@ const buttonExec = d3.select("#room-exec");
    
 // Add event listeners to each button
 button1.on("click", function() {
-  updateGraph("1 ROOM");
+ 
+  updateGraph("1 ROOM"); 
+    
 //    updateDomain("1 ROOM");
 });
 button2.on("click", function() {
-  updateGraph("2 ROOM");
+updateGraph("2 ROOM");  
+
 //    updateDomain("2 ROOM");
 });
 button3.on("click", function() {
-  updateGraph("3 ROOM");
+updateGraph("3 ROOM");    
+     
 //    updateDomain("3 ROOM");
 });
 button4.on("click", function() {
-  updateGraph("4 ROOM");
+updateGraph("4 ROOM");     
+     
 //    updateDomain("4 ROOM");
 });
 button5.on("click", function() {
-  updateGraph("5 ROOM");
+    updateGraph("5 ROOM");
+  
 //    updateDomain("5 ROOM");
 });
 buttonExec.on("click", function() {
-  updateGraph("EXECUTIVE");
+   updateGraph("EXECUTIVE");  
+     
 //    updateDomain("EXECUTIVE");
 });
 
@@ -212,7 +219,7 @@ bars.enter().append("rect")
 //    const defaultUnitType = "4 ROOM";
 //    const defaultUnitType = "5 ROOM";
 //    const defaultUnitType = "EXECUTIVE";
-updateGraph(unitType);
-//    svg.exit().remove();
+ updateGraph();
+
 
 })

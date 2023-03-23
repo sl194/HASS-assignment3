@@ -33,7 +33,7 @@
     <h1 style="text-align: center;font-family:sans-serif">Average prices across different towns in Singapore based on unit type</h1>
         <h3 style="text-align: center;font-family:sans-serif; font-weight: 200">For different unit types, which is the least and most expensive towns to live in ($/per sqm)?</h3>
     <div id="myDIV" style="text-align: center;">
-  <button class="btn active" id="room-1">1 ROOM</button>
+  <button class="btn" id="room-1">1 ROOM</button>
   <button class="btn" id="room-2">2 ROOM</button>
   <button class="btn" id="room-3">3 ROOM</button>
   <button class="btn" id="room-4">4 ROOM</button>
@@ -46,8 +46,11 @@ var header = document.getElementById("myDIV");
 var btns = header.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
+  var current = document.getElementsByClassName("btn");
   current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
   this.className += " active";
   });
 }
