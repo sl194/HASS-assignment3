@@ -156,7 +156,7 @@ bars.enter().append("rect")
 
   // Add the x-axis
   svg.append("g")
-    .attr("transform", "translate(0,620)")
+    .attr("transform", "translate(0,600)")
       .style("font-size", "8px")
     .call(d3.axisBottom(xScale));
 
