@@ -7,9 +7,9 @@ d3.csv("https://raw.githubusercontent.com/sl194/HASS-assignment3/main/jan2017onw
     floor_area_sqm: +d.floor_area_sqm,
   };
 }).then(function(data) {
-    const margin = {top: 10, right: 20, bottom: 30, left: 20};
+    const margin = {top: 10, right: 40, bottom: 30, left: 20};
     const width = window.innerWidth - margin.left - margin.right;
-    const height = window.innerHeight - margin.top - margin.bottom;
+    const height = 0.7*window.innerHeight - margin.top - margin.bottom;
 //        const width = window.innerWidth-10;
 //    const height = window.innerHeight;
 // Select the buttons
@@ -161,12 +161,12 @@ bars.enter().append("rect")
       .style("font-size", "8px")
     .call(d3.axisBottom(xScale));
 
-    svg.append("text")
-    .attr("class", "x label")
-    .attr("text-anchor", "end")
-    .attr("x", width)
-    .attr("y", height - 6)
-    .text("Towns in Singapore");
+//    svg.append("text")
+//    .attr("class", "x label")
+//    .attr("text-anchor", "end")
+//    .attr("x", width)
+//    .attr("y", height - 6)
+//    .text("Towns in Singapore");
     
     
   // Add the y-axis
