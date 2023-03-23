@@ -194,14 +194,24 @@ bars.enter().append("rect")
      
  
 }
+    
+//function updateXAxis(unitType) {
+//       const xScale = d3.scaleBand()
+//    .domain(townPrices.map(d => d.town))
+//    .range([0, width])
+//    .padding(0.1);
+//  // Call xAxis again with updated xScale
+//  xAxis.call(d3.axisBottom(xScale));
+//}
 
 // Initialize the graph with the default unit
 //    const defaultUnitType = "1 ROOM";
-    const defaultUnitType = "2 ROOM";
+//    const defaultUnitType = "2 ROOM";
 //    const defaultUnitType = "3 ROOM";
 //    const defaultUnitType = "4 ROOM";
 //    const defaultUnitType = "5 ROOM";
 //    const defaultUnitType = "EXECUTIVE";
-updateGraph(defaultUnitType);
+updateGraph(unitType);
+//    svg.exit().remove();
 
 })
