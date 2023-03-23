@@ -1,5 +1,5 @@
 // Load the data
-d3.csv("https://raw.githubusercontent.com/sl194/HASS-assignment3/main/jan2017onwards_edited.csv?token=GHSAT0AAAAAAB7LT4EKWKL36YVJRQLGQH7OZA4GKPQ", function(d) {
+d3.csv("https://raw.githubusercontent.com/sl194/HASS-assignment3/main/jan2017onwards_edited.csv", function(d) {
   return {
     town: d.town,
     resale_price: +d.resale_price,
