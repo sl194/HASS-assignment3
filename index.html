@@ -7,25 +7,50 @@
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <!-- Include your JavaScript file -->
       <script src="graph.js"></script>
-<!--
      <style>
     #graph {
       width: 100vw;
-      height: 100vh;
+      height: 75vh;
     }
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Style the active class, and buttons on mouse-over */
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
   </style>
--->
+   
 </head>
 <body>
-    <div>
-  <button id="room-1">1 ROOM</button>
-  <button id="room-2">2 ROOM</button>
-  <button id="room-3">3 ROOM</button>
-  <button id="room-4">4 ROOM</button>
-  <button id="room-5">5 ROOM</button>
-  <button id="room-exec">EXECUTIVE</button>
-</div>
+    <h1 style="text-align: center;font-family:sans-serif">Average prices across different towns in Singapore based on unit type</h1>
+    <div id="myDIV" style="text-align: center;">
+  <button class="btn" id="room-1">1 ROOM</button>
+  <button class="btn" id="room-2">2 ROOM</button>
+  <button class="btn" id="room-3">3 ROOM</button>
+  <button class="btn" id="room-4">4 ROOM</button>
+  <button class="btn" id="room-5">5 ROOM</button>
+  <button class="btn" id="room-exec">EXECUTIVE</button>
+</div><br><br>
  <svg id="graph"></svg>
 
 </body>
+<script>
+var header = document.getElementById("myDIV");
+var btns = document.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
 </html>
